@@ -1,0 +1,96 @@
+* {
+	margin : 0;
+	padding: 0;
+}
+
+body {
+	display       : flex;
+	min-height    : 100vh;
+	flex-direction: column;
+}
+
+body::-webkit-scrollbar {
+	width : 5px;
+	height: 10px;
+}
+
+body::-webkit-scrollbar-track-piece {
+	-webkit-border-radius: 0;
+}
+
+/* 滚动条 */
+body::-webkit-scrollbar-thumb {
+	height               : 50px;
+	background-color     : #b8b8b8;
+	-webkit-border-radius: 6px;
+	outline-offset       : -2px;
+	filter               : alpha(opacity=50);
+	-moz-opacity         : 0.5;
+	-khtml-opacity       : 0.5;
+	opacity              : 0.5;
+}
+
+.inner {
+	max-width: 1200px;
+	margin   : 0 auto;
+	position : relative;
+}
+
+.form {
+	width : 50%;
+	margin: 0 auto;
+}
+
+.form-tip {
+	font-size  : 12px;
+	font-weight: 700;
+}
+
+.body {
+	width      : 100%;
+	height     : auto;
+	padding-top: 100px;
+}
+
+.shenglue {
+	overflow     : hidden;
+	/*自动隐藏文字*/
+	text-overflow: ellipsis;
+	/*文字隐藏后添加省略号*/
+	white-space  : nowrap;
+	/*强制不换行*/
+	max-width    : 75px;
+}
+
+.minigroup {
+	display        : flex;
+	align-items    : center;
+	justify-content: space-between;
+}
+
+.stararea {
+	display    : flex;
+	list-style : none;
+	align-items: center;
+}
+
+.staritem {
+	padding            : 15px;
+	margin             : 3px;
+	background-image   : url(../img/star0.png);
+	background-size    : contain;
+	background-position: center;
+	background-repeat  : no-repeat;
+}
+
+.stararea>.active {
+	background-image: url(../img/star1.png);
+}
+
+.starnum {
+	padding            : 10px;
+	background-image   : url(../img/star1.png);
+	background-size    : contain;
+	background-position: center;
+	background-repeat  : no-repeat;
+}
