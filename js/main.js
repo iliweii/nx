@@ -74,7 +74,7 @@ $(function () {
                             <td>' + users[i][5] + '</td>\
                             <td>' + users[i][6] + '</td>\
                             <td class="shenglue">' + users[i][7] + '</td>\
-                            <td class="shenglue"><pre style="overflow: hidden;">' + users[i][8] + '</pre></td>\
+                            <td class="shenglue">' + users[i][8].replace(/<[^<>]+?>/g,'') + '</td>\
                             <td class="shenglue">' + users[i][9] + '</td>\
                             <td class="shenglue">' + users[i][10] + '</td>\
                             <td class="shenglue">' + users[i][11] + '</td>\

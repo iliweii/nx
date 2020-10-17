@@ -260,7 +260,7 @@
 
                             <!-- 提交按钮 和 重置按钮 -->
                             <input id="Submitbtn" class="btn btn-primary ml-3" type="submit" value="保存">
-                            <button class="btn btn-outline-primary my-2 my-sm-0 ml-5" onclick="window.location.href='./'">🏡返回主页</button>
+                            <button class="btn btn-outline-primary my-2 my-sm-0 ml-5" onclick="history.back(-1)">🏡返回主页</button>
 
                         </div>
 

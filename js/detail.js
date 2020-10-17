@@ -38,6 +38,7 @@ $(function () {
                 $("input[name=bid]").val(user["bid"]);
                 $("input[name=time]").val(user["time"]);
                 $("input[name=name]").val(user["name"]);
+                $("title").text(user["name"] + " | " + $("title").text());
                 $("input[name=phone]").val(user["phone"]);
                 $("input[name=qq]").val(user["qq"]);
                 $("input[name=college]").val(user["college"]);

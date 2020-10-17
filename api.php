@@ -63,7 +63,7 @@ else if (strcmp($_POST['op'], "query") == 0) {
     if (!empty($_POST['q'])) {
         $q = $_POST['q'];
     }
-    $query = "SELECT * FROM (SELECT nx_bso.*, nx_bst.star FROM `nx_bs` as nx_bso LEFT JOIN (SELECT nx_bs.*, AVG(nx_reviews.star) as star FROM `nx_bs`, nx_reviews WHERE nx_reviews.bid = nx_bs.bid) as nx_bst on nx_bso.bid = nx_bst.bid) as res WHERE res.name LIKE '%$q%'";
+    $query = "SELECT nx_bso.*, nx_bst.star FROM `nx_bs` as nx_bso LEFT JOIN (SELECT nx_reviews.bid, AVG(nx_reviews.star) as star FROM nx_reviews GROUP BY nx_reviews.bid) AS nx_bst on nx_bso.bid = nx_bst.bid WHERE nx_bso.name LIKE '%$q%' ORDER BY nx_bso.bid DESC";
     $result = mysqli_query($db, $query);
     $obj = mysqli_fetch_all($result);
     if (!empty($obj)) {
