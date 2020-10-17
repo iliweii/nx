@@ -42,6 +42,12 @@
                     <div id="tbuserFeedback" class="valid-feedback"></div>
                 </div>
 
+                <!-- 密码 -->
+                <div class="col-md-12 mb-3">
+                    <label for="Tbpwd">密码</label> <input type="password" class="form-control" id="Tbpwd" required>
+                    <div id="tbpwdFeedback" class="valid-feedback"></div>
+                </div>
+
                 <!-- 验证码 -->
                 <div class="mb-3" style="display: flex;">
                     <div class="col-md-5">

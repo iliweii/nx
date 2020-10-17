@@ -2,16 +2,20 @@ $(function () {
 
     // 变量声明区域
 
-    // 用户名和验证码
+    // 用户名、密码和验证码
     var Tbuser = $("input#Tbuser");
+    var Tbpwd = $("input#Tbpwd");
     var Tbverify = $("input#Tbverify");
     // 登录按钮
     var Loginbtn = $("#Loginbtn");
-    // 用户名、验证码信息反馈
+    // 用户名、密码、验证码信息反馈
     var tbuserFeedback = $("#tbuserFeedback");
+    var tbpwdFeedback = $("#tbpwdFeedback");
     var tbverifyFeedback = $("#tbverifyFeedback");
     // 表单区域
     var Form = $("#Form");
+    // 定义密码
+    var PWD = "youthol";
 
     //初始化验证码
     var verifyCode = new GVerify({
@@ -26,6 +30,15 @@ $(function () {
         Tbuser.removeClass("is-invalid");
         tbuserFeedback.removeClass("invalid-feedback");
         tbuserFeedback.text("");
+    });
+
+    // 密码输入事件
+    Tbpwd.keyup(function () {
+        Tbpwd.removeClass("is-valid");
+        tbpwdFeedback.removeClass("valid-feedback");
+        Tbpwd.removeClass("is-invalid");
+        tbpwdFeedback.removeClass("invalid-feedback");
+        tbpwdFeedback.text("");
     });
 
     // 验证码输入事件
@@ -45,6 +58,19 @@ $(function () {
             Tbuser.addClass("is-invalid");
             tbuserFeedback.addClass("invalid-feedback");
             tbuserFeedback.text("用户名不能为空!");
+            return;
+        }
+        // 获取密码
+        var tbpwd = Tbpwd.val();
+        if (tbpwd.length == 0) {
+            Tbpwd.addClass("is-invalid");
+            tbpwdFeedback.addClass("invalid-feedback");
+            tbpwdFeedback.text("密码不能为空!");
+            return;
+        } else if (tbpwd != PWD) {
+            Tbpwd.addClass("is-invalid");
+            tbpwdFeedback.addClass("invalid-feedback");
+            tbpwdFeedback.text("密码错误!");
             return;
         }
         // 获取验证码
