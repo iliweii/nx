@@ -55,7 +55,7 @@ body::-webkit-scrollbar-thumb {
 .shenglue {
 	overflow     : hidden;
 	/*自动隐藏文字*/
-	text-overflow: ellipsis;
+	/* text-overflow: ellipsis; */
 	/*文字隐藏后添加省略号*/
 	white-space  : nowrap;
 	/*强制不换行*/
