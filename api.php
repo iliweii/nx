@@ -120,6 +120,15 @@ else if (strcmp($_POST['op'], "review") == 0) {
 }
 // 查询所有面试记录
 else if (strcmp($_POST['op'], "reviews") == 0) {
+    $uid = $_POST['uid'];
+    $query = "SELECT `nx_bs`.`bid`, `nx_bs`.`name`, `nx_reviews`.`star`, `nx_reviews`.`review` FROM `nx_bs`,`nx_reviews` WHERE `nx_bs`.`bid` = `nx_reviews`.`bid`AND `nx_reviews`.`uid` = $uid";
+    $result = mysqli_query($db, $query);
+    $obj = mysqli_fetch_all($result);
+    if ($obj) {
+        echo json_encode($obj);
+    } else {
+        echo "empty";
+    }
 }
 // 根据id查询面试记录
 else if (strcmp($_POST['op'], "reviewbyid") == 0) {

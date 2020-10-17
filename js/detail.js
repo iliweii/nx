@@ -161,7 +161,6 @@ $(function () {
                 star: star
             },
             success: function (e) {
-                console.log(e)
                 if (e == "success") {
                     // 保存成功
                     swal("成功", "保存面试信息成功!", "success");
