@@ -42,7 +42,7 @@ $(function () {
     });
 
     // 验证码输入事件
-    Tbverify.keyup(function() {
+    Tbverify.keyup(function () {
         Tbverify.removeClass("is-valid");
         tbverifyFeedback.removeClass("valid-feedback");
         Tbverify.removeClass("is-invalid");
@@ -51,7 +51,7 @@ $(function () {
     });
 
     // 登录按钮点击事件
-    Loginbtn.click(function() {
+    Loginbtn.click(function () {
         // 获取用户名
         var tbuser = Tbuser.val();
         if (tbuser.length == 0) {
@@ -98,7 +98,7 @@ $(function () {
                 user: tbuser,
                 op: "login"
             },
-            success: function(e) {
+            success: function (e) {
                 if (e == "error") {
                     // 出现问题
                     swal("错误", "服务器错误，请重试", "error");
@@ -122,7 +122,7 @@ $(function () {
                     }, 1000);
                 }
             },
-            error: function(e) {
+            error: function (e) {
                 // 网络或服务器错误
                 swal("错误", "网络堵塞或服务器故障!", "error");
                 console.log(e);
@@ -134,21 +134,21 @@ $(function () {
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    var expires = "expires="+d.toUTCString();
+    var expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
+    for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
         while (c.charAt(0) == ' ') {
             c = c.substring(1);
-         }
-        if (c.indexOf(name)  == 0) {
+        }
+        if (c.indexOf(name) == 0) {
             return c.substring(name.length, c.length);
-         }
+        }
     }
     return "";
 }

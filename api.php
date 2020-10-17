@@ -6,8 +6,8 @@ $pwd = '';
 $dbname = 'nx_redcountry_top';
 
 // 创建数据库连接
-$db = new mysqli( $host, $dbuser, $pwd, $dbname );
-if( $db->connect_errno <> 0) {
+$db = new mysqli($host, $dbuser, $pwd, $dbname);
+if ($db->connect_errno <> 0) {
     echo "db_error";
     // echo $db->connect_error;
     $db->close();
@@ -22,7 +22,7 @@ date_default_timezone_set("prc");
 // 错误情况下
 if (empty($_POST['op'])) {
     echo "nx_api";
-} 
+}
 // 登录接口
 else if (strcmp($_POST["op"], "login") == 0) {
     // 用户名为空
@@ -120,7 +120,6 @@ else if (strcmp($_POST['op'], "review") == 0) {
 }
 // 查询所有面试记录
 else if (strcmp($_POST['op'], "reviews") == 0) {
-
 }
 // 根据id查询面试记录
 else if (strcmp($_POST['op'], "reviewbyid") == 0) {

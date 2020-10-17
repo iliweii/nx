@@ -94,3 +94,48 @@ body::-webkit-scrollbar-thumb {
 	background-position: center;
 	background-repeat  : no-repeat;
 }
+
+@media screen and (max-width: 900px) {
+	.btn {
+		position: unset !important;
+	}
+
+	.shenglue {
+		display: none;
+	}
+
+	.minigroup {
+		flex-wrap: wrap;
+	}
+}
+
+
+@media screen and (max-width: 700px) {
+	.form {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 550px) {
+	.form {
+		height: 100vh;
+	}
+
+	.form>.mb-3 {
+		flex-direction: column;
+	}
+
+	#verify-img {
+		width : 250px;
+		height: 80px;
+	}
+
+	.inner>.px-5 {
+		padding-left : unset !important;
+		padding-right: unset !important;
+	}
+
+	.body {
+		padding: 0;
+	}
+}
