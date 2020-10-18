@@ -140,7 +140,7 @@
 
                             <!-- 查询栏 -->
                             <div class="form-inline" style="position: relative;">
-                                <button class="btn btn-primary my-2 my-sm-0 ml-2" onclick="window.location.href='./'">🏡返回主页</button>
+                                <button class="btn btn-primary my-2 my-sm-0 ml-2" onclick="history.back(-1)">🏡返回主页</button>
                                 <button class="btn btn-outline-dark my-2 my-sm-0 ml-3" onclick="setCookie('user', '', -1);window.location.reload()" style="position: absolute; right: 0;">退出登录：<?php echo $user; ?></button>
                             </div>
 
@@ -190,7 +190,9 @@
                                 <div class="form-inline" style="position: relative;">
                                     <input class="Searchtext form-control mr-sm-2" type="search" placeholder="姓名" aria-label="姓名">
                                     <button class="Searchbtn btn btn-outline-success my-2 my-sm-0" type="submit">🔍查询</button>
+                                    <button class="StarSort btn btn-outline-warning my-2 my-sm-0 ml-2" type="submit">⭐按星级排序</button>
                                     <button class="btn btn-outline-info my-2 my-sm-0 ml-2" onclick="window.location.href='./index.php?go=my'">🧒🏼我的面试</button>
+                                    <button class="Donebtn btn btn-outline-danger my-2 my-sm-0 ml-2">已面试：0/0</button>
                                     <?php
                                     if (!empty($_GET["q"]) || !empty($_GET["page"])) {
                                     ?>

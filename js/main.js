@@ -63,10 +63,15 @@ $(function () {
                 }
                 // 输出本页表格数据
                 var maxi = pagenow * MAXSHOW < length ? pagenow * MAXSHOW : length;
-                for (var i = (pagenow - 1) * MAXSHOW; i < maxi; i++) {
+                let donenum = 0;
+                for (var i = 0; i < users.length; i++) {
                     if (!users[i][14]) {
                         users[i][14] = "暂无";
+                        donenum++;
                     }
+                }
+                $(".Donebtn").text("已面试:" + (users.length - donenum) + "/" + users.length);
+                for (var i = (pagenow - 1) * MAXSHOW; i < maxi; i++) {
                     tbody.append('\
                         <tr bid=' + users[i][0] + ' class="user-item">\
                             <td>' + users[i][0] + '</td>\
@@ -114,7 +119,46 @@ $(function () {
                         </td>\
                     </tr>\
                 ');
-
+                $(".StarSort").click(function(){
+                    for (let i = 0; i < users.length; i++) {
+                        if (users[i][14] == "暂无") {
+                            users[i][14] = 0;
+                        } else {
+                            users[i][14] = Number.parseFloat(users[i][14])
+                        }
+                    }
+                    users.sort(function(a, b){
+                        return b[14] - a[14]
+                    })
+                    tbody.text("");
+                    for (var i = 0; i < users.length; i++) {
+                        if (!users[i][14]) {
+                            continue;
+                        }
+                        tbody.append('\
+                            <tr bid=' + users[i][0] + ' class="user-item">\
+                                <td>' + users[i][0] + '</td>\
+                                <td>' + users[i][2] + '</td>\
+                                <td>' + users[i][5] + '</td>\
+                                <td>' + users[i][6] + '</td>\
+                                <td class="shenglue">' + users[i][7] + '</td>\
+                                <td class="shenglue">' + users[i][8].replace(/<[^<>]+?>/g,'') + '</td>\
+                                <td class="shenglue">' + users[i][9] + '</td>\
+                                <td class="shenglue">' + users[i][10] + '</td>\
+                                <td class="shenglue">' + users[i][11] + '</td>\
+                                <td class="shenglue">' + users[i][12] + '</td>\
+                                <td class="shenglue">' + users[i][13] + '</td>\
+                                <td>' + users[i][14] + '<span class="starnum"></span></td>\
+                                <td>\
+                                    <button type="button" class="checkbtn btn btn-success btn-sm" onclick="location.href=\'./index.php?bid=' + users[i][0] + '\'">开始面试</button>\
+                                </td>\
+                                <td>\
+                                    <button type="button" class="checkbtn btn btn-info btn-sm" onclick="location.href=\'./index.php?hisreview=' + users[i][0] + '\'">面试记录</button>\
+                                </td>\
+                            </tr>\
+                        ');
+                    }
+                })
             }
         },
         error: function (e) {
