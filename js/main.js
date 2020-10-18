@@ -84,6 +84,9 @@ $(function () {
                             <td>\
                                 <button type="button" class="checkbtn btn btn-success btn-sm" onclick="location.href=\'./index.php?bid=' + users[i][0] + '\'">开始面试</button>\
                             </td>\
+                            <td>\
+                                <button type="button" class="checkbtn btn btn-info btn-sm" onclick="location.href=\'./index.php?hisreview=' + users[i][0] + '\'">面试记录</button>\
+                            </td>\
                         </tr>\
                     ');
                 }
@@ -96,7 +99,7 @@ $(function () {
                 tbody.append('\
                     <!-- 表格底部分页栏 -->\
                     <tr class="table-borderless">\
-                        <td colspan="5">\
+                        <td colspan="6">\
                             <nav aria-label="Page navigation example">\
                                 <ul class="pagination">\
                                     <li class="page-item"><a class="page-link" href="./index.php?q=' + q + '&page=1">首页</a></li>\

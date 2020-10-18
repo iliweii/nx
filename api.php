@@ -145,6 +145,20 @@ else if (strcmp($_POST['op'], "reviewbyid") == 0) {
         echo "empty";
     }
 }
+// 根据bid查询被面试者所有面试记录
+else if (strcmp($_POST['op'], "hisreview") == 0) {
+    $bid = $_POST['bid'];
+    // 查询面试记录
+    $query = "SELECT `nx_bs`.`name`, `nx_users`.`name`, `nx_reviews`.`review`, `nx_reviews`.`star` FROM `nx_bs`, `nx_reviews`, `nx_users` WHERE `nx_bs`.`bid` = `nx_reviews`.`bid` AND `nx_reviews`.`uid` = `nx_users`.`uid` AND `nx_reviews`.`bid` = $bid";
+    $result = mysqli_query($db, $query);
+    $obj = mysqli_fetch_all($result);
+    if (!empty($obj)) {
+        // 如果存在数据直接返回
+        echo json_encode($obj);
+    } else {
+        echo "empty";
+    }
+}
 
 $db->close();
 return;
